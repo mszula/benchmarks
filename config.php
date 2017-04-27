@@ -45,6 +45,7 @@ define("MAP",               "Map");
 define("STACK",             "Stack");
 define("PRIORITY_QUEUE",    "PriorityQueue");
 define("SPL_FA",            "SplFixedArray");
+define("BLOOM",             "BloomFilter");
 
 $a = null; // array or collection
 
@@ -195,6 +196,12 @@ return [
             function($i) { global $a; $a[] = rand(); },
             function()   { global $a; $a = null; },
         ],
+
+        BLOOM => [
+            function($n) { global $a; $a = new BloomFilter($n*2, 0.0000001); },
+            function($i) { global $a; $a->add(rand()); },
+            function()   { global $a; $a = null; },
+        ],
     ]],
 
     'Sequence::push' => [ INCREMENTAL, [
@@ -226,6 +233,12 @@ return [
         DEQUE => [
             function($n) { global $a; $a = new Deque(); },
             function($i) { global $a; $a[] = rand(); },
+            function()   { global $a; $a = null; },
+        ],
+
+        BLOOM => [
+            function($n) { global $a; $a = new BloomFilter($n*2, 0.0000001); },
+            function($i) { global $a; $a->add(rand()); },
             function()   { global $a; $a = null; },
         ],
     ]],

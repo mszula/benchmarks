@@ -53,6 +53,7 @@ return [
             SPL_FA,
             VECTOR,
             DEQUE,
+            BLOOM,
         ]],
     ],
 
@@ -63,6 +64,7 @@ return [
             SPL_DLL,
             VECTOR,
             DEQUE,
+            BLOOM,
         ]],
     ],
 
